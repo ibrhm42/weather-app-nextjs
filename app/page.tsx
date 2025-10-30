@@ -8,6 +8,7 @@ import Map from "@/components/widgets/Map"
 import OtherLargeCities from "@/components/widgets/OtherLargeCities"
 import TenDayForecast from "@/components/widgets/TenDayForecast"
 import WeatherWidgets from "@/components/widgets/WeatherWidgets"
+import { DEFAULT_LOCATION } from "@/lib/config"
 import {
   AirPollutionResponse,
   HourlyForecastResponse,
@@ -17,32 +18,13 @@ import {
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-export async function generateMetadata({
-  searchParams,
-}: {
-  searchParams: searchParamsProps
-}): Promise<Metadata> {
-  const { lat, lon } = searchParams
-  const url = `http://${process.env.VERCEL_URL}/api/weather/hourly?lat=${lat}&lon=${lon}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
-  const data = await fetch(url).then((res) => res.json())
-
-  return {
-    title: `${data.city.name} - Weather Forecast`,
-    description: `${data.city.name} weather forecast with current conditions, wind, air quality, and what to expect for the next 3 days.`,
-  }
+export const metadata: Metadata = {
+  title: `${DEFAULT_LOCATION.city} - Weather Forecast`,
+  description: `${DEFAULT_LOCATION.city} weather forecast with current conditions, wind, air quality, and what to expect for the next 3 days.`,
 }
 
-interface searchParamsProps {
-  lat: string
-  lon: string
-}
-
-export default async function SearchPage({
-  searchParams,
-}: {
-  searchParams: searchParamsProps
-}) {
-  const { lat, lon } = searchParams
+export default async function Home() {
+  const { lat, lon } = DEFAULT_LOCATION.coord
 
   const HourlyDataRequest: HourlyForecastResponse = await getHourlyData({
     lat,
