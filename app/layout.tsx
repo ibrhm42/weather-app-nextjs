@@ -4,6 +4,7 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
 import { NextThemesProvider } from "@/components/providers/NextThemesProvider"
 import { CodeIcon, HeartIcon } from "@radix-ui/react-icons"
+import Navigation from "@/components/Navigation"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navigation />
           <main className="flex-grow">{children}</main>
           <footer className="py-4">
             <div
