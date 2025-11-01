@@ -2,6 +2,7 @@ import { getAirPollutionData } from "@/actions/getAirPollutionData"
 import { getHourlyData } from "@/actions/getHourlyData"
 import { getTenDayForecast } from "@/actions/getTenDayForecast"
 import { getUVData } from "@/actions/getUVData"
+import UserLocationRedirect from "@/components/UserLocationRedirect"
 import CurrentWeather from "@/components/widgets/CurrentWeather"
 import HourlyForecast from "@/components/widgets/HourlyForecast"
 import Map from "@/components/widgets/Map"
@@ -67,6 +68,7 @@ export default async function Home() {
           <HourlyForecast data={hourly_data.list} />
           <Map />
           <OtherLargeCities />
+          <UserLocationRedirect autoRedirect />
         </section>
       </div>
     </>
