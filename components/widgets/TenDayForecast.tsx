@@ -103,7 +103,8 @@ export default function TenDayForecast({ data }: TenDayForecastProps) {
                 />
               </svg>
             </i>
-            10-Day Forecast
+            {/* ToDo: Update to 10-Day whe API supports it */}
+            5-Day Forecast
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-2 text-base font-normal md:mb-1">

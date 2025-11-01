@@ -48,12 +48,14 @@ export default function UserLocationRedirect({
   return (
     <>
       {!autoRedirect && (
-        <img
-          className="cursor-pointer"
-          width={30}
-          src="/icons/gps.svg"
-          onClick={getAndRedirect}
-        />
+        <div className="flex rounded-sm bg-white">
+          <img
+            className="max-w-max cursor-pointer"
+            width={30}
+            src="/icons/gps.svg"
+            onClick={getAndRedirect}
+          />
+        </div>
       )}
 
       {loading && <Popup>Obtaining your location and redirecting…</Popup>}
