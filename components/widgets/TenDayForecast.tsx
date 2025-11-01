@@ -17,7 +17,7 @@ export default function TenDayForecast({ data }: TenDayForecastProps) {
 
   return (
     <>
-      <Card className="h-fit shrink-0">
+      <Card className="h-fit shrink-0 flex-1">
         <CardHeader>
           <CardTitle>
             <i>
