@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   if (!lat || !lon) {
     return Response.json({ message: "Missing lat param" }, { status: 400 })
   }
-  const url= `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${NUMBER_OF_DAYS}&units=metric&appid=${appid}`;
+  const url= `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${NUMBER_OF_DAYS}&units=metric&appid=183ed297f46a1a3da2019bb9d46afcc4`;
   console.log('-------------------------------');
   console.log(url);
   

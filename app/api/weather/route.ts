@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   }
 
   const res = await fetch(
-    `https://pro.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${appid}`,
+    `https://pro.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=183ed297f46a1a3da2019bb9d46afcc4`,
     {
       next: { revalidate: 900 },
     }
