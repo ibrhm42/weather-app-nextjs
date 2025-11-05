@@ -6,7 +6,7 @@ export const getHourlyData = async ({
   lon: string
 }) => {
   const data = await fetch(
-    `${process.env.VERCEL_URL}/api/weather/hourly?lat=${lat}&lon=${lon}&_=${Date.now()}`,
+    `https://${process.env.VERCEL_URL}/api/weather/hourly?lat=${lat}&lon=${lon}&_=${Date.now()}`,
     {
       cache: "no-store",
     }
