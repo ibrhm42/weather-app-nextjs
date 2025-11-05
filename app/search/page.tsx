@@ -44,10 +44,7 @@ export default async function SearchPage({
 }) {
   const { lat, lon } = searchParams
 
-  const HourlyDataRequest: HourlyForecastResponse = await getHourlyData({
-    lat,
-    lon,
-  })
+  const HourlyDataRequest: HourlyForecastResponse = await getHourlyData()
   const TenDayForecastRequest: TenDayForecastData = await getTenDayForecast({
     lat,
     lon,
