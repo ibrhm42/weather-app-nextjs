@@ -9,6 +9,7 @@ export const getHourlyData = async ({
 }) => {
   const incomingHeaders = headers()
   const host = incomingHeaders.get("host") || "localhost:3000"
+  
   const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
 
   const url = `${protocol}://${host}/api/weather/hourly`
