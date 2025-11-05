@@ -18,7 +18,12 @@ export const getHourlyData = async () => {
     },
   })
   if (!data.ok) {
-    throw new Error("Failed to fetch data")
+    const errorText = await data.text()
+    console.error("OWM Error:", errorText)
+    return Response.json(
+      { error: "Weather API failed", details: errorText },
+      { status: data.status }
+    )
   }
 
   return data.json()
