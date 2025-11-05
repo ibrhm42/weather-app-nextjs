@@ -1,4 +1,4 @@
-import { headers } from 'next/headers'
+import { headers } from "next/headers"
 
 export const getHourlyData = async ({
   lat,
@@ -13,13 +13,14 @@ export const getHourlyData = async ({
 
   const url = `${protocol}://${host}/api/weather/hourly`
   const data = await fetch(url, {
-    cache: "no-store",headers: {
-      'Cache-Control': 'no-cache',
+    cache: "no-store",
+    headers: {
+      "Cache-Control": "no-cache",
       // REQUIRED for Vercel internal routing
-      'host': host,
-      'x-forwarded-host': host,
-      'x-forwarded-proto': protocol.replace(':', ''), // 'https' or 'http'
-    },,
+      host: host,
+      "x-forwarded-host": host,
+      "x-forwarded-proto": protocol.replace(":", ""), // 'https' or 'http'
+    },
   })
   if (!data.ok) {
     throw new Error("Failed to fetch data")
