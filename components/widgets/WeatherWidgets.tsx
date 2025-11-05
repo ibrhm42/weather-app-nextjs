@@ -13,8 +13,8 @@ import { formatSunTimeWithAMPM } from "@/lib/dateUtils"
 
 interface WeatherWidgetsProps {
   data: HourlyForecastData
-  airQuality: AirQualityData
-  uvIndexForToday: number
+  airQuality?: AirQualityData
+  uvIndexForToday?: number
   city: City
 }
 
@@ -26,7 +26,7 @@ export default function WeatherWidgets({
 }: WeatherWidgetsProps) {
   return (
     <>
-      <AirPollution airQuality={airQuality} className="order-2 md:order-1" />
+      {/* <AirPollution airQuality={airQuality} className="order-2 md:order-1" /> */}
       <Card className="order-3 flex h-48 flex-col justify-between lg:order-2">
         <CardHeader>
           <CardTitle>
@@ -141,7 +141,7 @@ export default function WeatherWidgets({
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-2">
+          {/* <p className="mb-2">
             {Math.round(uvIndexForToday)}
             <br></br>
             {uvIndexForToday <= 2
@@ -151,17 +151,17 @@ export default function WeatherWidgets({
               : uvIndexForToday <= 7
               ? "High"
               : "Very High"}
-          </p>
-          <Progress aria-label="UV Index" value={uvIndexForToday * 10} />
+          </p> */}
+          {/* <Progress aria-label="UV Index" value={uvIndexForToday * 10} /> */}
         </CardContent>
         <CardFooter>
-          <p>
+          {/* <p>
             {uvIndexForToday <= 2
               ? "No protection needed."
               : uvIndexForToday <= 5
               ? "Wear sunscreen."
               : "Take precautions."}
-          </p>
+          </p> */}
         </CardFooter>
       </Card>
       <Card className="order-6 flex h-48 flex-col justify-between">
