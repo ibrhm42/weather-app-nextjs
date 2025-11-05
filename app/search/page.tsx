@@ -23,7 +23,7 @@ export async function generateMetadata({
   searchParams: searchParamsProps
 }): Promise<Metadata> {
   const { lat, lon } = searchParams
-  const url = `http://${process.env.VERCEL_URL}/api/weather/hourly?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_API_KEY}`
+  const url = `/api/weather/hourly?lat=${lat}&lon=${lon}&appid=${process.env.OPEN_WEATHER_API_KEY}`
   const data = await fetch(url).then((res) => res.json())
 
   return {
