@@ -1,18 +1,18 @@
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const lat = searchParams.get("lat")
-  const lon = searchParams.get("lon")
+  // const { searchParams } = new URL(request.url)
+  // const lat = searchParams.get("lat")
+  // const lon = searchParams.get("lon")
   // const HOURS = 23
 
 
-  if (!lat || !lon) {
-    return Response.json({ message: "Missing parameters" }, { status: 400 })
-  }
+  // if (!lat || !lon) {
+  //   return Response.json({ message: "Missing parameters" }, { status: 400 })
+  // }
 
-  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=183ed297f46a1a3da2019bb9d46afcc4`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=55.6760968&lon=12.5683371&appid=183ed297f46a1a3da2019bb9d46afcc4`
 
   const res = await fetch(url, {
-    next: { revalidate: 900 },
+    next: { revalidate: 0 },
   })
 
   if (!res.ok) {
