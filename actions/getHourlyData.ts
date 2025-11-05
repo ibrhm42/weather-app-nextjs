@@ -1,3 +1,5 @@
+import { headers } from "next/headers"
+
 export const getHourlyData = async ({
   lat,
   lon,
@@ -5,15 +7,12 @@ export const getHourlyData = async ({
   lat: string
   lon: string
 }) => {
-  const data = await fetch(
-    `https://${process.env.VERCEL_URL}/api/weather/hourly?lat=${lat}&lon=${lon}&_=${Date.now()}`,
-    {
-      cache: "no-store",
-    }
-  )
-  if (!data.ok) {
-    throw new Error("Failed to fetch data")
-  }
+  const host = headers().get("host") || "localhost:3000"
+  const protocol = process.env.NODE_ENV === "production" ? "https" : "http"
+  const url = `${protocol}://${host}/api/weather/hourly?lat=${lat}&lon=${lon}`
 
-  return data.json()
+  const res = await fetch(url, { cache: "no-store" })
+
+  if (!res.ok) throw new Error("Failed to fetch weather")
+  return res.json()
 }
