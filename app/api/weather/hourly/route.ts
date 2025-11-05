@@ -1,5 +1,6 @@
-export const runtime = 'nodejs';
-
+export const runtime = "nodejs"
+export const dynamic = "force-dynamic"
+export const revalidate = 0
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const lat = searchParams.get("lat")
@@ -24,7 +25,11 @@ export async function GET(request: Request) {
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${HOURS}&exclude=current,minutely,daily,alerts&appid=183ed297f46a1a3da2019bb9d46afcc4&units=metric?nocache=${Date.now()}`
 
   const res = await fetch(url, {
-    next: { revalidate: 900 },
+    next: { revalidate: 0 },
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+    cache: "no-store",
   })
 
   if (!res.ok) {
