@@ -27,10 +27,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   const { lat, lon } = DEFAULT_LOCATION.coord
 
-  const HourlyDataRequest: HourlyForecastResponse = await getHourlyData({
-    lat,
-    lon,
-  })
+  const HourlyDataRequest: HourlyForecastResponse = await getHourlyData()
   const TenDayForecastRequest: TenDayForecastData = await getTenDayForecast({
     lat,
     lon,
