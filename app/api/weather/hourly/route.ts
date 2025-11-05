@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     process.env.OPEN_WEATHER_API_KEY ? "exists" : "missing"
   )
 
-  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${HOURS}&exclude=current,minutely,daily,alerts&appid=${appid}&units=metric?nocache=${Date.now()}`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${HOURS}&exclude=current,minutely,daily,alerts&appid=${appid}&units=metric&nocache=${Date.now()}`
 
   const res = await fetch(url, {
     next: { revalidate: 900 },
