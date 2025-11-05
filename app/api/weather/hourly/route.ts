@@ -16,7 +16,7 @@ export async function GET(request: Request) {
   }
   console.log(
     "API key from env:",
-    process.env.OPEN_WEATHER_API_KEY ? "exists" : "missing"
+    process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY ? "exists" : "missing"
   )
 
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=${HOURS}&exclude=current,minutely,daily,alerts&appid=${appid}&units=metric&nocache=${Date.now()}`
